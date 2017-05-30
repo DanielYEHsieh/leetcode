@@ -1,5 +1,5 @@
 
-// 9ms beats 100%
+// 8ms beats 100%
 #define TRUE 1
 #define FALSE 0
 
