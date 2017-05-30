@@ -1,4 +1,4 @@
-
+//50 ms beats 66% 
 double MedOfArray (int* nums, int numsSize)
 {
     bool fgIsEvenSize = numsSize % 2 == 0? 1:0;
