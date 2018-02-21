@@ -1,0 +1,29 @@
+int MIN(int a, int b)
+{
+    return a < b ? a : b;
+}
+
+int maxAreaInNtime(int* height, int heightSize, int Ans, int Start, int End){
+    if (Start >= End)
+        return Ans;
+    else {
+        //printf("Start %d End %d height[Start]%d height[End]%d, A %d, B %d\n", Start, End, height[Start], height[End],height[End] * (End - Start), height[Start] * (End - Start) );
+        if (height[Start] > height[End]) {
+            if (height[End] * (End - Start) > Ans)
+                Ans = height[End] * (End - Start);
+            End--;
+        }
+        else {
+            if (height[Start] * (End - Start) > Ans)
+                Ans = height[Start] * (End - Start);
+            Start++;            
+        }
+    }
+    return maxAreaInNtime(height, heightSize, Ans, Start, End);
+}
+
+int maxArea(int* height, int heightSize) {
+    int Ans = 0;
+    Ans = maxAreaInNtime(height, heightSize, 0, 0, heightSize - 1);
+    return Ans;
+}
